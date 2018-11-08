@@ -10,9 +10,12 @@ node {
   stage('deploy') {
     def resourceGroup = 'myResourceGroupJenkins'
     def webAppName = 'myJavaApp20181107'
+    def registryServer = 'jenkinsregistry20181107.azurecr.io'
+    
     sh 'mv target/*.war target/ROOT.war'
     azureWebAppPublish azureCredentialsId: 'c15a8e93-c326-413c-8066-711259ecea53', publishType: 'file',
-                       resourceGroup: resourceGroup, appName: webAppName, dockerRegistryEndpoint: [],
+                       resourceGroup: resourceGroup, appName: webAppName,
+                       dockerRegistryEndpoint: [credentialsId: '50735b4f-ee4b-4f42-9525-57d4776c6da7', url: "https://$registryServer"],
                        filePath: '*.war', sourceDirectory: 'target', targetDirectory: 'webapps'
   }
 }
