@@ -12,7 +12,7 @@ node {
     def webAppName = 'myJavaApp20181107'
     sh 'mv target/*.war target/ROOT.war'
     azureWebAppPublish azureCredentialsId: 'c15a8e93-c326-413c-8066-711259ecea53', publishType: 'file',
-                       resourceGroup: resourceGroup, appName: webAppName, dockerRegistryEndpoint: []
+                       resourceGroup: resourceGroup, appName: webAppName, dockerRegistryEndpoint: [],
                        filePath: '*.war', sourceDirectory: 'target', targetDirectory: 'webapps'
   }
 }
