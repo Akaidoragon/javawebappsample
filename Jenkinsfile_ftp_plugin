@@ -8,10 +8,10 @@ node {
   }
   
   stage('deploy') {
-    def resourceGroup = '<myResourceGroup>'
-    def webAppName = '<myAppName>'
+    def resourceGroup = 'myResourceGroupJenkins'
+    def webAppName = 'jenkinsregistry20181107'
     sh 'mv target/*.war target/ROOT.war'
-    azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'file',
+    azureWebAppPublish azureCredentialsId: 'c15a8e93-c326-413c-8066-711259ecea53', publishType: 'file',
                        resourceGroup: resourceGroup, appName: webAppName,
                        filePath: '*.war', sourceDirectory: 'target', targetDirectory: 'webapps'
   }
