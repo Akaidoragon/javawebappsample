@@ -18,7 +18,7 @@ node {
   
   stage('deploy') {
     def resourceGroup = 'sonnh28_test' 
-    def webAppName = 'son-jenkins_sp'
+    def webAppName = 'sonnh28-testwebapp1'
     def mySrvPrincipal = '7aa7d470-70a9-4f6b-a8a6-ba71410877e2'
     
     // login Azure
